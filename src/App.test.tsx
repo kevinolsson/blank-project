@@ -1,12 +1,10 @@
-import { render, screen } from 'test-utils';
-import { useStore } from './state/useStore';
+import { render, screen, resetGlobalState } from 'test-utils';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 
-const initialStoreState = useStore.getState();
 describe('App', () => {
   beforeEach(() => {
-    useStore.setState(initialStoreState, true);
+    resetGlobalState();
   });
 
   it('should render', () => {
