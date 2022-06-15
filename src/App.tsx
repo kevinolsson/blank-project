@@ -6,7 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className={classes.appHelloWorld}>
+    <div className={classes.app}>
       <header className={classes.appHeader}>
         <img src={logo} className={classes.appLogo} alt="logo" />
         <p>Hello Vite + React!</p>
