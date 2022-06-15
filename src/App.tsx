@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import { useStore } from './state/useStore';
 import logo from './logo.svg';
 import classes from './App.module.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { count, increase, decrease } = useStore((state) => state);
 
   return (
     <div className={classes.app}>
       <header className={classes.appHeader}>
         <img src={logo} className={classes.appLogo} alt="logo" />
         <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
+        <div className={classes.counterWrapper}>
+          <button type="button" onClick={() => decrease(1)}>
+            -
           </button>
-        </p>
+          <h1>{count}</h1>
+          <button type="button" onClick={() => increase(1)}>
+            +
+          </button>
+        </div>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
