@@ -1,9 +1,34 @@
+import { useEffect } from 'react';
 import { useStore } from './state/useStore';
 import logo from './logo.svg';
 import classes from './App.module.css';
 
+type TThemeEnum = 'light' | 'dark';
+
 function App() {
   const { count, increaseCount, decreaseCount } = useStore((state) => state);
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      'data-theme',
+      ((): TThemeEnum => {
+        if (localStorage.getItem('theme')) {
+          return localStorage.getItem('theme') as TThemeEnum;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })()
+    );
+  }, []);
+
+  const switchTheme = (): void => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  };
 
   return (
     <div className={classes.app}>
@@ -19,6 +44,7 @@ function App() {
             +
           </button>
         </div>
+        <button onClick={switchTheme}>Toggle theme</button>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
