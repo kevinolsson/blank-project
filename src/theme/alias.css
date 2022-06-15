@@ -1,13 +1,20 @@
 :root {
   --text-color-1: var(--black);
   --text-color-2: var(--grey-800);
+
   --background-color-1: var(--white);
   --background-color-2: var(--grey-300);
+
+  --primary-color-1: var(--pink-1);
 }
 
 [data-theme="dark"] {
   --text-color-1: var(--white);
   --text-color-2: var(--grey-300);
+
   --background-color-1: var(--black);
   --background-color-2: var(--grey-800);
+
+  --primary-color-1: var(--green-1);
+
 }
