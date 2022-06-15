@@ -49,4 +49,5 @@
 
 button {
   font-size: calc(10px + 2vmin);
+  padding: 12px 24px;
 }

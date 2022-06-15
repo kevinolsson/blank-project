@@ -2,12 +2,12 @@ import { StoreSlice } from './useStore';
 
 export interface ICounterSlice {
   count: number;
-  increase: (by: number) => void;
-  decrease: (by: number) => void;
+  increaseCount: (by: number) => void;
+  decreaseCount: (by: number) => void;
 }
 
-export const createCounterSlice: StoreSlice<ICounterSlice> = (set, get) => ({
+export const createCounterSlice: StoreSlice<ICounterSlice> = (set) => ({
   count: 0,
-  increase: (by) => set((state) => ({ count: state.count + by })),
-  decrease: (by) => set((state) => ({ count: state.count - by }))
+  increaseCount: (by) => set((state) => ({ count: state.count + by })),
+  decreaseCount: (by) => set((state) => ({ count: state.count - by }))
 });

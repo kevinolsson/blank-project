@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import classes from './App.module.css';
 
 function App() {
-  const { count, increase, decrease } = useStore((state) => state);
+  const { count, increaseCount, decreaseCount } = useStore((state) => state);
 
   return (
     <div className={classes.app}>
@@ -11,11 +11,11 @@ function App() {
         <img src={logo} className={classes.appLogo} alt="logo" />
         <p>Hello Vite + React!</p>
         <div className={classes.counterWrapper}>
-          <button type="button" onClick={() => decrease(1)}>
+          <button type="button" onClick={() => decreaseCount(1)}>
             -
           </button>
           <h1>{count}</h1>
-          <button type="button" onClick={() => increase(1)}>
+          <button type="button" onClick={() => increaseCount(1)}>
             +
           </button>
         </div>
